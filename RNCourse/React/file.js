@@ -1,0 +1,1 @@
+const x = 'Empezamos con React'
