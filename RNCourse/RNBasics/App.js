@@ -7,34 +7,44 @@ import GoalInput from './components/GoalInput';
 
 export default function App() {
 
-  
+  const [ModalVisible, setModalVisible] = useState(false);
   const [courseGoals, setCourserGoals] = useState([]);
 
-  
+  function startModalHandler() {
+    setModalVisible(true);
+  }
+
+  function endModalHandler() {
+    setModalVisible(false);
+  }
 
   function addGoalHandler(enteredGoalText) {
     setCourserGoals((currentCourseGoals) => [
       ...currentCourseGoals,
       { text: enteredGoalText, id: Math.random().toString() }]);
+    setModalVisible(false); // Cuando toquemos el boton de agregar, se cierra el modal.
   };
 
   function deleteGoalHandler(id) {
-    setCourserGoals ((currentCourseGoals) => {
+    setCourserGoals((currentCourseGoals) => {
       return currentCourseGoals.filter((goal) => goal.id !== id);
     });
   }
 
   return (
     <View style={styles.appContainer}>
-
-      <GoalInput onAddGoal={addGoalHandler}/>
+      <Button title="Add New Goal" onPress={startModalHandler} />
+      <GoalInput onAddGoal={addGoalHandler} visible = {ModalVisible} onCancel = {endModalHandler}/>
 
       <View style= {styles.goalsContainer}>
         <FlatList 
           data={courseGoals}
           renderItem={(itemData) => {
             return (
-              <GoalItem text={itemData.item.text} onDeleteItem={(deleteGoalHandler)} />
+              <GoalItem 
+              text={itemData.item.text}
+              onDeleteItem={(deleteGoalHandler)} 
+              id = {itemData.item.id} />
             );
           }}
           keyExtractor={(item,index) => {
