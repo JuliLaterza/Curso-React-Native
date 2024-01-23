@@ -18,7 +18,7 @@ function GoalInput(props) {
             <View style={styles.inputContainer}>
                 <Image style= {styles.image} source={require('../assets/goal.png')}/>
                 <TextInput
-                    placeholder="Your course Goal"
+                    placeholder="Your course Goalss"
                     style={styles.textInput}
                     onChangeText={goalInputHandler}
                     value = {enteredGoalText} // Volvemos al estado anterior para resetear el valor.
