@@ -2,6 +2,7 @@ import { TextInput, View, Text, StyleSheet } from 'react-native';
 import PrimaryButton from '../components/PrimaryButton';
 
 function StartGameScreen() {
+
     return (
         <View style={styles.inputContainer}>
             <Text>The Game Screen!</Text>
@@ -11,8 +12,15 @@ function StartGameScreen() {
                 maxLength={2}
                 keyboardType='number-pad'
             />
-            <PrimaryButton>START GAME</PrimaryButton>
-            <PrimaryButton>Reset Game</PrimaryButton>
+            <View style={styles.buttonsContainer}>
+                <View style={styles.buttonContainer}>
+                    <PrimaryButton>Start Game</PrimaryButton>
+                </View>
+                <View style={styles.buttonContainer}>
+                    <PrimaryButton>Reset Game</PrimaryButton>
+                </View>
+            </View>
+            
         </View>
     );
 }
@@ -43,5 +51,11 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         fontWeight: 'bold',
         textAlign: 'center',
-    }
+    },
+    buttonsContainer: {
+        flexDirection: 'row',
+    },
+    buttonContainer: {
+        marginVertical: 8,
+    },
 });
