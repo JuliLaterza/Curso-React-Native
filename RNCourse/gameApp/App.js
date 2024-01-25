@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import { useState } from 'react';
 import StartGameScreen from './screens/StartGameScreen';
-
+import GameScreen from './screens/GameScreen';
 
 
 export default function App() {
@@ -15,13 +15,15 @@ export default function App() {
 
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler}/>;
 
+  
+  
   if (userNumber) {
     screen = <GameScreen />;
   }
-
+  
   return (
     <ImageBackground source={require('./assets/backimage.jpg')} style={styles.rootScreen} resizeMode='cover'>
-        <StartGameScreen /> 
+        { screen }
     </ImageBackground>
   );
 }

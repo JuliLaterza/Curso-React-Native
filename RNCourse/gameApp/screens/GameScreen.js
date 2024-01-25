@@ -1,12 +1,22 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet} from 'react-native';
 
 function GameScreen () {
     return (
-        <View>
-            <Text>Hello, world!</Text>
+        <View style={styles.container}>
+            <Text>VAMOS LA CONCHA DE TU HERMANA ALL BOYS</Text>
         </View>
     );
 };
 
 export default GameScreen;
+
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
