@@ -32,7 +32,7 @@ function StartGameScreen( {onPickNumber} ) {
 
     return (
         <View style={styles.inputContainer}>
-            <Text>The Game Screen!</Text>
+            <Text style={styles.greetings} >Start Game</Text>
             <TextInput
                 //placeholder="Enter a number"
                 style={styles.numberInput}
@@ -87,4 +87,10 @@ const styles = StyleSheet.create({
     buttonContainer: {
         marginVertical: 8,
     },
+    greetings: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    }
 });
