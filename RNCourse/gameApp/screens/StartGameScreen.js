@@ -32,7 +32,7 @@ function StartGameScreen( {onPickNumber} ) {
 
     return (
         <View style={styles.inputContainer}>
-            <Text style={styles.greetings} >Start Game</Text>
+            <Text style={styles.greetings} >Game</Text>
             <TextInput
                 //placeholder="Enter a number"
                 style={styles.numberInput}
