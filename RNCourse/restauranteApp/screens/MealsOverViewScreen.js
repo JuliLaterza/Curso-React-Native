@@ -1,33 +1,38 @@
 import { View, FlatList,Text, StyleSheet } from 'react-native';
 
 import MealItem from '../components/MealItem';
-import { MEALS } from '../data/dummy-data';
+import { MEALS, CATEGORIES} from '../data/dummy-data';
+import { useEffect, useLayoutEffect } from 'react';
 
-function MealsOverviewScreen ({ route }) {
+function MealsOverviewScreen ({ route, navigation }) {
   const catId = route.params.categoryId;
   
   const displayedMeals = MEALS.filter((mealItem) => {
-    //console.log('catId:', catId);
-    //console.log('mealItem.categoryIds:', mealItem.categoryIds);
     return mealItem.categoryIds.indexOf(catId) >= 0;
   });
 
+
+  useLayoutEffect( () => {
+    const categoryTitle = CATEGORIES.find((category) => category.id === catId).title;
+
+    navigation.setOptions({ title: categoryTitle });
+  }, [catId, navigation]);
+
   function renderMealItem(itemData) {
-    console.log('itemData:', itemData); // Imprime todo el objeto itemData
-    //console.log('title:', itemData.item.title);
+
+    const item = itemData.item;
+    const mealItemProps = {
+      title: item.title,
+      imageUrl: item.imageUrl,
+      duration: item.duration,
+      complexity: item.complexity,
+      affordability: item.affordability,
+    };
+
     return (
-      <MealItem 
-      title={itemData.item.title}
-      imageUrl={itemData.item.imageUrl}
-      duration={itemData.item.duration}
-      complexity={itemData.item.complexity}
-      affordability={itemData.item.affordability}
-      />
+      <MealItem { ...mealItemProps }/>
     );
   }
-
-  //console.log("Ingrese a la pantalla de MealsOverviewScreen", catId)
-  //console.log("displayedMeals:", displayedMeals)
 
   return (
     <View>
