@@ -12,7 +12,6 @@ function CategoriesScreen({ navigation }) {
         categoryImage: itemData.item.image,
       });
     }
-    console.log("itemData:", itemData.item.image)
     return (
       <CategoryGridTile
         title={itemData.item.title}
