@@ -8,10 +8,9 @@ import List from '../components/MealDetail/List';
 function MealDetailScreen ({ route }) {
   const mealTitle = route.params.mealTitle;
   const mealId = route.params.mealId;
-  console.log(mealId);
-  const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
-  console.log(selectedMeal);
+  const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+  
   return (
     <ScrollView style={styles.rootContainer}>
       <Image style={styles.image} source={{ uri: selectedMeal.imageUrl }} />
