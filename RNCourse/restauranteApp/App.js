@@ -8,7 +8,7 @@ import MealsOverViewScreen from './screens/MealsOverViewScreen';
 import MealDetailScreen from './screens/MealDetailScreen';
 import FavoritesScreen from './screens/FavoritesScreen';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
+import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
 
@@ -16,13 +16,27 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator
+      screenOptions={{
+        headerShown: true,
+        headerStyle: {
+          backgroundColor: '#223843',
+        },
+        headerTintColor: 'white',
+        drawerActiveBackgroundColor: '#223843',
+        drawerActiveTintColor: 'white',
+        sceneContainerStyle: {
+          backgroundColor: '#f2f2f2',
+        },
+      }}
+    >
       <Drawer.Screen name="MealsCategories" component={CategoriesScreen} options={{
-        title: 'All Categories'
+        title: 'Categorias',
+        drawerIcon: ({ focused, size }) => ( <Ionicons name="list" size={size} color={focused ? 'white' : 'black'} />)
       }} />
-      <Drawer.Screen name="MealsOverview" component={MealsOverViewScreen} />
-      <Drawer.Screen name="MealDetails" component={MealDetailScreen} />
-      <Drawer.Screen name="Favorites" component={FavoritesScreen} />
+      <Drawer.Screen name="Favoritos" component={FavoritesScreen} options={{
+        drawerIcon: ({ focused, size }) => ( <Ionicons name="star" size={size} color={focused ? 'white' : 'black'} />)
+      }} />
     </Drawer.Navigator>
   );
 }
@@ -30,9 +44,13 @@ function DrawerNavigator() {
 export default function App() {
   return (
     <>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator options={{
+          statusbar: {
+            backgroundColor: 'white',
+          }
+        }}>
           <Stack.Screen 
           name="MealsCategories" 
           component={DrawerNavigator} 
