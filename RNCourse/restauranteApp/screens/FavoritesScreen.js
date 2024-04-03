@@ -8,7 +8,7 @@ import { MEALS } from '../data/dummy-data';
 function FavoritesScreen() {
   const favoriteMealsCtx = useContext(FavoritesContext);
 
-  const favoriteMeals = MEALS.filter((meal) =>
+  const favoriteMeals = MEALS.filter(meal =>
     favoriteMealsCtx.ids.includes(meal.id)
   );
   console.log(favoriteMeals.length)
@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
   },
 });

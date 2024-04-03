@@ -2,10 +2,10 @@ import { Pressable  } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet } from "react-native";
 
-function IconButton ({icon, color, onPress}) {
+function IconButton({ icon, color, onPress }) {
     return (
-        <Pressable style={styles.button}>
-            <Ionicons name="star-outline" size={24} color="#ffbe0b" />
+        <Pressable onPress={onPress} style={styles.button}>
+            <Ionicons name={icon} size={24} color={color} />
         </Pressable>
     );
 }
