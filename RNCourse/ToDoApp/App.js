@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 //Archivos JS
 import ManageExpense from './screens/ManageExpense';
-import RecentManage from './screens/RecentManage';
+import RecentExpenses from './screens/RecentExpenses';
 import AllExpenses from './screens/AllExpenses';
 import { GlobalStyles } from './constants/style';
 
@@ -24,7 +24,7 @@ function ExpenseOverview() { //Este es el componente principal de la BottomTab. 
     tabBarStyle: {backgroundColor: GlobalStyles.colors.celes_claro},
     tabBarActiveTintColor: GlobalStyles.colors.celes_oscu,
   }}>
-    <BottomTabs.Screen name="RecentManage" component={RecentManage} 
+    <BottomTabs.Screen name="RecentExpenses" component={RecentExpenses} 
       options={{
       title: 'Recent Expenses',
       tabBarLabel: 'Recent',
