@@ -7,10 +7,10 @@ function ExpenseItem({description,amount,date}){
         <View style={style.extenseItem}>
             <View >
                 <Text style={[style.textBase, style.description]} >{description}</Text>
-                <Text style={style.textBase}>{date}</Text>
+                <Text style={style.textBase}>{date.toString()}</Text>
             </View>
-            <View>
-                <Text>{amount}</Text>
+            <View  style = {style.amountContainer} >
+                <Text style = {style.amount}>{amount}</Text>
             </View>
         </View>
     </Pressable>
