@@ -11,6 +11,7 @@ import ManageExpense from './screens/ManageExpense';
 import RecentExpenses from './screens/RecentExpenses';
 import AllExpenses from './screens/AllExpenses';
 import { GlobalStyles } from './constants/style';
+import IconButton from './components/UI/IconButton';
 
 const Stack = createStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -23,6 +24,7 @@ function ExpenseOverview() { //Este es el componente principal de la BottomTab. 
     headerTintColor: 'black',
     tabBarStyle: {backgroundColor: GlobalStyles.colors.celes_claro},
     tabBarActiveTintColor: GlobalStyles.colors.celes_oscu,
+    headerRight: ({tintColor}) => <IconButton icon="add" size = {24} color={tintColor} onPress={() => {}}  />
   }}>
     <BottomTabs.Screen name="RecentExpenses" component={RecentExpenses} 
       options={{
@@ -50,7 +52,11 @@ export default function App() {
       <StatusBar style="auto" />
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="ExpenseOverview" component={ExpenseOverview} options={{ headerShown: false }} /> 
+          <Stack.Screen 
+            name="ExpenseOverview" 
+            component={ExpenseOverview} 
+            options={{ headerShown: false }} /> 
+
           <Stack.Screen name="ManageExpense" component={ManageExpense} options={{headerShown: false}} />
         </Stack.Navigator>
       </NavigationContainer>
