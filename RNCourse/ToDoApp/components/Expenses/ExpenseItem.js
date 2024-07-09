@@ -1,13 +1,21 @@
 import { Pressable, View, Text, StyleSheet} from "react-native";
 import { GlobalStyles } from "../../constants/style";
+import { getFormattedDate } from "../../util/date";
 
 function ExpenseItem({description,amount,date}){
+
+    function expensePressHandler(){
+        
+    }
+
+
+
     return (
-    <Pressable>
+    <Pressable onPress={expensePressHandler} style={ ({ pressed }) => pressed && style.pressed } android_ripple>
         <View style={style.extenseItem}>
             <View >
                 <Text style={[style.textBase, style.description]} >{description}</Text>
-                <Text style={style.textBase}>{date.toString()}</Text>
+                <Text style={style.textBase}>{getFormattedDate(date)}</Text>
             </View>
             <View  style = {style.amountContainer} >
                 <Text style = {style.amount}>{amount}</Text>
@@ -20,6 +28,9 @@ function ExpenseItem({description,amount,date}){
 export default ExpenseItem;
 
 const style = StyleSheet.create({
+    pressed: {
+        opacity: 0.70
+    },
     extenseItem: {
         padding: 12,
         marginVertical: 8,
@@ -34,7 +45,7 @@ const style = StyleSheet.create({
         shadowOpacity: 0.4
     },
     textBase: {
-        color: GlobalStyles.colors.celes_oscu
+        color: GlobalStyles.colors.azul
     },
     description: {
         fontSize: 16,
@@ -47,7 +58,7 @@ const style = StyleSheet.create({
         backgroundColor: 'white',
         justifyContent: 'center',
         alignContent: 'center',
-        borderRadius: 4
+        borderRadius: 4,
     },
     amount: {
         color: GlobalStyles.colors.celes_oscu,

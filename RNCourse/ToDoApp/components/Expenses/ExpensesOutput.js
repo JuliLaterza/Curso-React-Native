@@ -44,6 +44,7 @@ function ExpensesOutput( { expenses, expensesPeriod }){
             <ExpensesSummary expenses = {DUMMY_EXPENSES} periodName={expensesPeriod}/>
             <ExpensesList expenses={DUMMY_EXPENSES} />
         </View>
+
     )
 }
 
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         padding: 24,
+        paddingBottom:0,
         backgroundColor: GlobalStyles.colors.celes_oscu,
     }
 });
