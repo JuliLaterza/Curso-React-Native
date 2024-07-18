@@ -29,8 +29,9 @@ const style = StyleSheet.create({
         justifyContent: 'space-between'
     },
     period:{
-        fontSize: 12,
+        fontSize: 16,
         color: GlobalStyles.colors.azul,
+        fontWeight: 'bold'
     },
     sum: {
         fontSize: 16,
